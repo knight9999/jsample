@@ -131,12 +131,14 @@ define ['callAjax01'], (callAjax01)->
 
     beforeEach (done)->
       $('body').append('<div id="result">xxx</div>')
-      onSuccess = jasmine.createSpy('onSuccess')
-      onFailure = jasmine.createSpy('onFailure')
-      callAjax01 onSuccess, onFailure
-      setTimeout ->
+      onSuccess = jasmine.createSpy('onSuccess').and.callFake ->
         done()
-      , 1000
+      onFailure = jasmine.createSpy('onFailure').and.callFake ->
+        done()
+      callAjax01 onSuccess, onFailure
+      # setTimeout ->
+      #   done()
+      # , 1000
 
     afterEach ()->
       $('#result').remove()

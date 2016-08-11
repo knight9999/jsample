@@ -24,7 +24,7 @@ gulp.task('compile',function() {
 
 });
 
-gulp.task('server',function() {
+gulp.task('server',['copy','compile'],function() {
   gulp.watch(['src/coffee/**'],['compile'])
   gulp.watch(['src/fixtures/**'],['copy'])
   gulp.src('webroot').pipe( webserver({

@@ -1,5 +1,6 @@
 define ['callAjax01'], (callAjax01)->
 
+
   describe 'callAjax01 with real HTML DOM Test', ()->
 
     beforeEach ()->
@@ -123,3 +124,27 @@ define ['callAjax01'], (callAjax01)->
         return
 
     return
+
+  describe 'Real callAjax01 with real HTML DOM Test', ()->
+    onSuccess = null
+    onFailure = null
+
+    beforeEach (done)->
+      $('body').append('<div id="result">xxx</div>')
+      onSuccess = jasmine.createSpy('onSuccess')
+      onFailure = jasmine.createSpy('onFailure')
+      callAjax01 onSuccess, onFailure
+      setTimeout ->
+        done()
+      , 1000
+
+    afterEach ()->
+      $('#result').remove()
+
+    it 'called?', ()->
+      expect( onSuccess).toHaveBeenCalled();
+      return
+
+    it 'value is OK?', ()->
+      expect( $('#result').html() ).toBe('Success:{"aa":"bb"}')
+      return

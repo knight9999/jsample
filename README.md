@@ -56,6 +56,10 @@ HTMLを追加を行い、テストします。
 
   stubRequestを使い、予めレスポンスを用意しておいて、Ajaxの動作を確認するテスト
 
+3. Real callAjax01 with real HTML DOM test
+
+（おまけ）jasmine-ajaxを使わずに、本当にAjax呼び出しを行って、動作を確認するテスト
+
 
 ### gulpコマンドのレファランス
 

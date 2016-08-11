@@ -50,6 +50,7 @@ require( [ 'jasmine', 'jasmine-boot', 'jasmine-ajax' ], ()->
   require( [
     'jasmine-jquery' , 'jquery', 'testSample001','testCallAjax01'
   ], ()->
+    jasmine.getFixtures().fixturesPath = '/js/test/fixtures'
     window.onload();
   )
 )

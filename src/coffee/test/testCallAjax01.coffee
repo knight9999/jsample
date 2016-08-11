@@ -66,7 +66,6 @@ define ['callAjax01'], (callAjax01)->
   describe 'callAjax01 with fixture HTML Test', ()->
 
     beforeEach ()->
-      jasmine.getFixtures().fixturesPath = '/js/test/fixtures'
       loadFixtures('dummy.html')
       jasmine.Ajax.install()
 

@@ -32,16 +32,16 @@ Ajaxのテストは、testCallAjax01.coffeeで行っています。
 
 1. callAjax01 with real HTML DOM test
 
-  初期処理(beforeEach)で、DOMに<div id="result">を追加し、Ajaxがそこに対して
+  初期処理(beforeEach)で、DOMに`<div id="result">`を追加し、Ajaxがそこに対して
   HTMLを追加を行い、テストします。
 
   1. 毎回レスポンスを指定して返すサンプル
 
-    request.respondWithを使い、リクエストに対して直接レスポンスを返すテスト
+    `request.respondWith`を使い、リクエストに対して直接レスポンスを返すテスト
 
   2. 予め指定されたレスポンスを返すサンプル
 
-    stubRequestを使い、予めレスポンスを用意しておいて、Ajaxの動作を確認するテスト
+    `stubRequest`を使い、予めレスポンスを用意しておいて、Ajaxの動作を確認するテスト
 
 2. callAjax01 with fixture HTML test
 

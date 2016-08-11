@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var del = require('del');
 var coffee = require('gulp-coffee');
 var merge = require('merge-stream');
+var webserver = require('gulp-webserver');
 
 gulp.task('clean',function() {
   del.sync( [ 'webroot/js/**' , '!webroot/js' , '!webroot/js/.gitkeep'] );
@@ -21,4 +22,13 @@ gulp.task('compile',function() {
           .pipe(coffee())
           .pipe(gulp.dest('webroot/js/'));
 
+});
+
+gulp.task('server',function() {
+  gulp.watch(['src/coffee/**'],['compile'])
+  gulp.watch(['src/fixtures/**'],['copy'])
+  gulp.src('webroot').pipe( webserver({
+    livereload: true,
+    open: true
+  }));
 });

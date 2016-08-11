@@ -12,7 +12,11 @@ $ gulp copy
 
 $ gulp compile
 
-webrootをApache等でマウントし、以下にアクセスしてください
+次のコマンドを実行して、ローカルサーバーを起動するか、
+
+$ gulp server
+
+またはwebrootをApache等でマウントし、以下にアクセスしてください
 
 ### Ajaxを呼び出す簡単なアプリ
 
@@ -66,3 +70,9 @@ webroot配下に、jasmineやfixturesなど、テストに必要なファイル�
 $ gulp compile
 
 webroot配下に、CoffeeScriptのコードをコンパイルして配置します。
+
+$ gulp server
+
+ローカルサーバーを起動し、ブラウザでそのページを表示します。
+同時に、coffeeスクリプトとfixtures以下のファイルを監視し、変更があれば
+直ちにコンパイル・コピーを実行し、さらに、ブラウザでその内容を再読み込みします。
